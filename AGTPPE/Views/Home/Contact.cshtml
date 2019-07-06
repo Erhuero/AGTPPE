@@ -1,5 +1,16 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+
+<div class="jumbotron">
+    <p class="lead">Formulaire de declaration d'incidents.</p>
+
+</div>
+
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+
+        <li>@Html.ActionLink("Incidents en cours", "Index")</li>
+        <li>@Html.ActionLink("Incidents clôturés", "Index")</li>
+    </ul>
+</div>
