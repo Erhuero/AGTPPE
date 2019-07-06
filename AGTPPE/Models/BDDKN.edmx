@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KNInfoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MATERIEL">
+          <Key>
+            <PropertyRef Name="numeroSerieMateriel" />
+          </Key>
+          <Property Name="numeroSerieMateriel" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="emplacementMateriel" Type="varchar" MaxLength="5" />
+          <Property Name="typeMateriel" Type="char" MaxLength="5" />
+          <Property Name="modeleMateriel" Type="varchar" MaxLength="5" />
+          <Property Name="ipMateriel" Type="varchar" MaxLength="12" />
+          <Property Name="typeConnexionMateriel" Type="char" MaxLength="20" />
+          <Property Name="typeIpMateriel" Type="char" MaxLength="20" />
+          <Property Name="numInfologMateriel" Type="varchar" MaxLength="20" />
+          <Property Name="celluleMateriel" Type="varchar" MaxLength="20" />
+          <Property Name="etatMateriel" Type="char" MaxLength="500" />
+          <Property Name="numeroChariot" Type="varchar" MaxLength="20" />
+          <Property Name="idUtilisateur" Type="int" />
+        </EntityType>
+        <EntityType Name="PROFIL">
+          <Key>
+            <PropertyRef Name="idProfil" />
+          </Key>
+          <Property Name="idProfil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomProfil" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TICKETS">
+          <Key>
+            <PropertyRef Name="idTickets" />
+          </Key>
+          <Property Name="idTickets" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="emplacementMaterielTicket" Type="varchar" MaxLength="20" />
+          <Property Name="typeMaterielTicket" Type="varchar" MaxLength="20" />
+          <Property Name="niveauUrgenceTicket" Type="int" />
+          <Property Name="descriptionIncident" Type="char" MaxLength="5" />
+          <Property Name="dateCreationTicket" Type="datetime" />
+          <Property Name="dateClotureTicket" Type="datetime" />
+          <Property Name="idUtilisateur" Type="int" />
+          <Property Name="numeroSerieMateriel" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="UTILISATEUR">
+          <Key>
+            <PropertyRef Name="idUtilisateur" />
+          </Key>
+          <Property Name="idUtilisateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomUtilisateur" Type="char" MaxLength="50" />
+          <Property Name="prenomUtilisateur" Type="char" MaxLength="50" />
+          <Property Name="telephoneUtilisateur" Type="varchar" MaxLength="15" />
+          <Property Name="mailUtilisateur" Type="varchar" MaxLength="50" />
+          <Property Name="gradeUtilisateur" Type="varchar" MaxLength="50" />
+          <Property Name="idUtilisateur_AUTORISERINSCRIPTION" Type="int" />
+          <Property Name="idProfil" Type="int" />
+        </EntityType>
+        <Association Name="MATERIEL_UTILISATEUR0_FK">
+          <End Role="UTILISATEUR" Type="Self.UTILISATEUR" Multiplicity="0..1" />
+          <End Role="MATERIEL" Type="Self.MATERIEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UTILISATEUR">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="MATERIEL">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TICKETS_MATERIEL1_FK">
+          <End Role="MATERIEL" Type="Self.MATERIEL" Multiplicity="0..1" />
+          <End Role="TICKETS" Type="Self.TICKETS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIEL">
+              <PropertyRef Name="numeroSerieMateriel" />
+            </Principal>
+            <Dependent Role="TICKETS">
+              <PropertyRef Name="numeroSerieMateriel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TICKETS_UTILISATEUR0_FK">
+          <End Role="UTILISATEUR" Type="Self.UTILISATEUR" Multiplicity="0..1" />
+          <End Role="TICKETS" Type="Self.TICKETS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UTILISATEUR">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="TICKETS">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UTILISATEUR_PROFIL1_FK">
+          <End Role="PROFIL" Type="Self.PROFIL" Multiplicity="0..1" />
+          <End Role="UTILISATEUR" Type="Self.UTILISATEUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFIL">
+              <PropertyRef Name="idProfil" />
+            </Principal>
+            <Dependent Role="UTILISATEUR">
+              <PropertyRef Name="idProfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UTILISATEUR_UTILISATEUR0_FK">
+          <End Role="UTILISATEUR" Type="Self.UTILISATEUR" Multiplicity="0..1" />
+          <End Role="UTILISATEUR1" Type="Self.UTILISATEUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UTILISATEUR">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="UTILISATEUR1">
+              <PropertyRef Name="idUtilisateur_AUTORISERINSCRIPTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KNInfoModelStoreContainer">
+          <EntitySet Name="MATERIEL" EntityType="Self.MATERIEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROFIL" EntityType="Self.PROFIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TICKETS" EntityType="Self.TICKETS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UTILISATEUR" EntityType="Self.UTILISATEUR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="MATERIEL_UTILISATEUR0_FK" Association="Self.MATERIEL_UTILISATEUR0_FK">
+            <End Role="UTILISATEUR" EntitySet="UTILISATEUR" />
+            <End Role="MATERIEL" EntitySet="MATERIEL" />
+          </AssociationSet>
+          <AssociationSet Name="TICKETS_MATERIEL1_FK" Association="Self.TICKETS_MATERIEL1_FK">
+            <End Role="MATERIEL" EntitySet="MATERIEL" />
+            <End Role="TICKETS" EntitySet="TICKETS" />
+          </AssociationSet>
+          <AssociationSet Name="TICKETS_UTILISATEUR0_FK" Association="Self.TICKETS_UTILISATEUR0_FK">
+            <End Role="UTILISATEUR" EntitySet="UTILISATEUR" />
+            <End Role="TICKETS" EntitySet="TICKETS" />
+          </AssociationSet>
+          <AssociationSet Name="UTILISATEUR_PROFIL1_FK" Association="Self.UTILISATEUR_PROFIL1_FK">
+            <End Role="PROFIL" EntitySet="PROFIL" />
+            <End Role="UTILISATEUR" EntitySet="UTILISATEUR" />
+          </AssociationSet>
+          <AssociationSet Name="UTILISATEUR_UTILISATEUR0_FK" Association="Self.UTILISATEUR_UTILISATEUR0_FK">
+            <End Role="UTILISATEUR" EntitySet="UTILISATEUR" />
+            <End Role="UTILISATEUR1" EntitySet="UTILISATEUR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KNInfoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MATERIEL">
+          <Key>
+            <PropertyRef Name="numeroSerieMateriel" />
+          </Key>
+          <Property Name="numeroSerieMateriel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emplacementMateriel" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="typeMateriel" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="modeleMateriel" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ipMateriel" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="typeConnexionMateriel" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="typeIpMateriel" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="numInfologMateriel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="celluleMateriel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="etatMateriel" Type="String" MaxLength="500" FixedLength="true" Unicode="false" />
+          <Property Name="numeroChariot" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="idUtilisateur" Type="Int32" />
+          <NavigationProperty Name="UTILISATEUR" Relationship="Self.MATERIEL_UTILISATEUR0_FK" FromRole="MATERIEL" ToRole="UTILISATEUR" />
+          <NavigationProperty Name="TICKETS" Relationship="Self.TICKETS_MATERIEL1_FK" FromRole="MATERIEL" ToRole="TICKETS" />
+        </EntityType>
+        <EntityType Name="PROFIL">
+          <Key>
+            <PropertyRef Name="idProfil" />
+          </Key>
+          <Property Name="idProfil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomProfil" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UTILISATEUR" Relationship="Self.UTILISATEUR_PROFIL1_FK" FromRole="PROFIL" ToRole="UTILISATEUR" />
+        </EntityType>
+        <EntityType Name="TICKETS">
+          <Key>
+            <PropertyRef Name="idTickets" />
+          </Key>
+          <Property Name="idTickets" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emplacementMaterielTicket" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="typeMaterielTicket" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="niveauUrgenceTicket" Type="Int32" />
+          <Property Name="descriptionIncident" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="dateCreationTicket" Type="DateTime" Precision="3" />
+          <Property Name="dateClotureTicket" Type="DateTime" Precision="3" />
+          <Property Name="idUtilisateur" Type="Int32" />
+          <Property Name="numeroSerieMateriel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MATERIEL" Relationship="Self.TICKETS_MATERIEL1_FK" FromRole="TICKETS" ToRole="MATERIEL" />
+          <NavigationProperty Name="UTILISATEUR" Relationship="Self.TICKETS_UTILISATEUR0_FK" FromRole="TICKETS" ToRole="UTILISATEUR" />
+        </EntityType>
+        <EntityType Name="UTILISATEUR">
+          <Key>
+            <PropertyRef Name="idUtilisateur" />
+          </Key>
+          <Property Name="idUtilisateur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomUtilisateur" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="prenomUtilisateur" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="telephoneUtilisateur" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="mailUtilisateur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gradeUtilisateur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idUtilisateur_AUTORISERINSCRIPTION" Type="Int32" />
+          <Property Name="idProfil" Type="Int32" />
+          <NavigationProperty Name="MATERIEL" Relationship="Self.MATERIEL_UTILISATEUR0_FK" FromRole="UTILISATEUR" ToRole="MATERIEL" />
+          <NavigationProperty Name="PROFIL" Relationship="Self.UTILISATEUR_PROFIL1_FK" FromRole="UTILISATEUR" ToRole="PROFIL" />
+          <NavigationProperty Name="TICKETS" Relationship="Self.TICKETS_UTILISATEUR0_FK" FromRole="UTILISATEUR" ToRole="TICKETS" />
+          <NavigationProperty Name="UTILISATEUR1" Relationship="Self.UTILISATEUR_UTILISATEUR0_FK" FromRole="UTILISATEUR" ToRole="UTILISATEUR1" />
+          <NavigationProperty Name="UTILISATEUR2" Relationship="Self.UTILISATEUR_UTILISATEUR0_FK" FromRole="UTILISATEUR1" ToRole="UTILISATEUR" />
+        </EntityType>
+        <Association Name="MATERIEL_UTILISATEUR0_FK">
+          <End Role="UTILISATEUR" Type="Self.UTILISATEUR" Multiplicity="0..1" />
+          <End Role="MATERIEL" Type="Self.MATERIEL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UTILISATEUR">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="MATERIEL">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TICKETS_MATERIEL1_FK">
+          <End Role="MATERIEL" Type="Self.MATERIEL" Multiplicity="0..1" />
+          <End Role="TICKETS" Type="Self.TICKETS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MATERIEL">
+              <PropertyRef Name="numeroSerieMateriel" />
+            </Principal>
+            <Dependent Role="TICKETS">
+              <PropertyRef Name="numeroSerieMateriel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UTILISATEUR_PROFIL1_FK">
+          <End Role="PROFIL" Type="Self.PROFIL" Multiplicity="0..1" />
+          <End Role="UTILISATEUR" Type="Self.UTILISATEUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFIL">
+              <PropertyRef Name="idProfil" />
+            </Principal>
+            <Dependent Role="UTILISATEUR">
+              <PropertyRef Name="idProfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TICKETS_UTILISATEUR0_FK">
+          <End Role="UTILISATEUR" Type="Self.UTILISATEUR" Multiplicity="0..1" />
+          <End Role="TICKETS" Type="Self.TICKETS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UTILISATEUR">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="TICKETS">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UTILISATEUR_UTILISATEUR0_FK">
+          <End Role="UTILISATEUR" Type="Self.UTILISATEUR" Multiplicity="0..1" />
+          <End Role="UTILISATEUR1" Type="Self.UTILISATEUR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UTILISATEUR">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="UTILISATEUR1">
+              <PropertyRef Name="idUtilisateur_AUTORISERINSCRIPTION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KNInfoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MATERIEL" EntityType="Self.MATERIEL" />
+          <EntitySet Name="PROFIL" EntityType="Self.PROFIL" />
+          <EntitySet Name="TICKETS" EntityType="Self.TICKETS" />
+          <EntitySet Name="UTILISATEUR" EntityType="Self.UTILISATEUR" />
+          <AssociationSet Name="MATERIEL_UTILISATEUR0_FK" Association="Self.MATERIEL_UTILISATEUR0_FK">
+            <End Role="UTILISATEUR" EntitySet="UTILISATEUR" />
+            <End Role="MATERIEL" EntitySet="MATERIEL" />
+          </AssociationSet>
+          <AssociationSet Name="TICKETS_MATERIEL1_FK" Association="Self.TICKETS_MATERIEL1_FK">
+            <End Role="MATERIEL" EntitySet="MATERIEL" />
+            <End Role="TICKETS" EntitySet="TICKETS" />
+          </AssociationSet>
+          <AssociationSet Name="UTILISATEUR_PROFIL1_FK" Association="Self.UTILISATEUR_PROFIL1_FK">
+            <End Role="PROFIL" EntitySet="PROFIL" />
+            <End Role="UTILISATEUR" EntitySet="UTILISATEUR" />
+          </AssociationSet>
+          <AssociationSet Name="TICKETS_UTILISATEUR0_FK" Association="Self.TICKETS_UTILISATEUR0_FK">
+            <End Role="UTILISATEUR" EntitySet="UTILISATEUR" />
+            <End Role="TICKETS" EntitySet="TICKETS" />
+          </AssociationSet>
+          <AssociationSet Name="UTILISATEUR_UTILISATEUR0_FK" Association="Self.UTILISATEUR_UTILISATEUR0_FK">
+            <End Role="UTILISATEUR" EntitySet="UTILISATEUR" />
+            <End Role="UTILISATEUR1" EntitySet="UTILISATEUR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KNInfoModelStoreContainer" CdmEntityContainer="KNInfoEntities">
+          <EntitySetMapping Name="MATERIEL">
+            <EntityTypeMapping TypeName="KNInfoModel.MATERIEL">
+              <MappingFragment StoreEntitySet="MATERIEL">
+                <ScalarProperty Name="numeroSerieMateriel" ColumnName="numeroSerieMateriel" />
+                <ScalarProperty Name="emplacementMateriel" ColumnName="emplacementMateriel" />
+                <ScalarProperty Name="typeMateriel" ColumnName="typeMateriel" />
+                <ScalarProperty Name="modeleMateriel" ColumnName="modeleMateriel" />
+                <ScalarProperty Name="ipMateriel" ColumnName="ipMateriel" />
+                <ScalarProperty Name="typeConnexionMateriel" ColumnName="typeConnexionMateriel" />
+                <ScalarProperty Name="typeIpMateriel" ColumnName="typeIpMateriel" />
+                <ScalarProperty Name="numInfologMateriel" ColumnName="numInfologMateriel" />
+                <ScalarProperty Name="celluleMateriel" ColumnName="celluleMateriel" />
+                <ScalarProperty Name="etatMateriel" ColumnName="etatMateriel" />
+                <ScalarProperty Name="numeroChariot" ColumnName="numeroChariot" />
+                <ScalarProperty Name="idUtilisateur" ColumnName="idUtilisateur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROFIL">
+            <EntityTypeMapping TypeName="KNInfoModel.PROFIL">
+              <MappingFragment StoreEntitySet="PROFIL">
+                <ScalarProperty Name="idProfil" ColumnName="idProfil" />
+                <ScalarProperty Name="nomProfil" ColumnName="nomProfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TICKETS">
+            <EntityTypeMapping TypeName="KNInfoModel.TICKETS">
+              <MappingFragment StoreEntitySet="TICKETS">
+                <ScalarProperty Name="idTickets" ColumnName="idTickets" />
+                <ScalarProperty Name="emplacementMaterielTicket" ColumnName="emplacementMaterielTicket" />
+                <ScalarProperty Name="typeMaterielTicket" ColumnName="typeMaterielTicket" />
+                <ScalarProperty Name="niveauUrgenceTicket" ColumnName="niveauUrgenceTicket" />
+                <ScalarProperty Name="descriptionIncident" ColumnName="descriptionIncident" />
+                <ScalarProperty Name="dateCreationTicket" ColumnName="dateCreationTicket" />
+                <ScalarProperty Name="dateClotureTicket" ColumnName="dateClotureTicket" />
+                <ScalarProperty Name="idUtilisateur" ColumnName="idUtilisateur" />
+                <ScalarProperty Name="numeroSerieMateriel" ColumnName="numeroSerieMateriel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UTILISATEUR">
+            <EntityTypeMapping TypeName="KNInfoModel.UTILISATEUR">
+              <MappingFragment StoreEntitySet="UTILISATEUR">
+                <ScalarProperty Name="idUtilisateur" ColumnName="idUtilisateur" />
+                <ScalarProperty Name="nomUtilisateur" ColumnName="nomUtilisateur" />
+                <ScalarProperty Name="prenomUtilisateur" ColumnName="prenomUtilisateur" />
+                <ScalarProperty Name="telephoneUtilisateur" ColumnName="telephoneUtilisateur" />
+                <ScalarProperty Name="mailUtilisateur" ColumnName="mailUtilisateur" />
+                <ScalarProperty Name="gradeUtilisateur" ColumnName="gradeUtilisateur" />
+                <ScalarProperty Name="idUtilisateur_AUTORISERINSCRIPTION" ColumnName="idUtilisateur_AUTORISERINSCRIPTION" />
+                <ScalarProperty Name="idProfil" ColumnName="idProfil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

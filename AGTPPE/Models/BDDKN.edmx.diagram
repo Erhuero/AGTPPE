@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="408ff1a4d9184157b8c67a52cd42b279" Name="Diagram1">
+        <EntityTypeShape EntityType="KNInfoModel.MATERIEL" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="KNInfoModel.PROFIL" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KNInfoModel.TICKETS" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KNInfoModel.UTILISATEUR" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="KNInfoModel.MATERIEL_UTILISATEUR0_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="KNInfoModel.TICKETS_MATERIEL1_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="KNInfoModel.UTILISATEUR_PROFIL1_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="KNInfoModel.TICKETS_UTILISATEUR0_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="KNInfoModel.UTILISATEUR_UTILISATEUR0_FK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
