@@ -4,25 +4,14 @@
 
 <div class="jumbotron">
     <p class="lead">Application de gestion de tickets.</p>
-    
+
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Incidents en cours.</h2>
-        <p>
-            Tous vos incidents
-        </p>
-    </div>
-    <div class="col-md-4">
-        <h2>Incidents cloturés</h2>
-        <p>
-            Historique de vos incidents.
-        </p>
-    </div>
-    <div class="col-md-4">
-        <h2> Declarez un incident</h2>
-        <p>Declarez un incident en ligne.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+
+        <li>@Html.ActionLink("Incidents en cours", "About")</li>
+        <li>@Html.ActionLink("Incidents clôturés", "About")</li>
+        <li>@Html.ActionLink("Déclarez un incident", "Contact")</li>
+    </ul>
 </div>
