@@ -217,8 +217,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\TICKETS\Create.cshtml" />
     <Content Include="Views\TICKETS\Delete.cshtml" />
-    <Content Include="Views\TICKETS\Details.cshtml" />
-    <Content Include="Views\TICKETS\Edit.cshtml" />
     <Content Include="Views\TICKETS\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

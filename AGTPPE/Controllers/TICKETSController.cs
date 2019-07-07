@@ -21,20 +21,7 @@ namespace AGTPPE.Controllers
             return View(tICKETS.ToList());
         }
 
-        // GET: TICKETS/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TICKETS tICKETS = db.TICKETS.Find(id);
-            if (tICKETS == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tICKETS);
-        }
+        
 
         // GET: TICKETS/Create
         public ActionResult Create()
@@ -63,22 +50,7 @@ namespace AGTPPE.Controllers
             return View(tICKETS);
         }
 
-        // GET: TICKETS/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TICKETS tICKETS = db.TICKETS.Find(id);
-            if (tICKETS == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.numeroSerieMateriel = new SelectList(db.MATERIEL, "numeroSerieMateriel", "emplacementMateriel", tICKETS.numeroSerieMateriel);
-            ViewBag.idUtilisateur = new SelectList(db.UTILISATEUR, "idUtilisateur", "nomUtilisateur", tICKETS.idUtilisateur);
-            return View(tICKETS);
-        }
+       
 
         // POST: TICKETS/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
