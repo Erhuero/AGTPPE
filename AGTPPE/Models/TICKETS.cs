@@ -25,15 +25,18 @@ namespace AGTPPE.Models
         [Required]
         [Display(Name = "Type de matériel ")]
         public string typeMaterielTicket { get; set; }
-        public IEnumerable<SelectListItem> UrgenceType { get; set; }
+        public IEnumerable<SelectListItem> TypeMateriel{ get; set; }
 
         [Required]
         [Display(Name = "Niveau d'urgence ")]
         public Nullable<int> niveauUrgenceTicket { get; set; }
+        public IEnumerable<SelectListItem> UrgenceNiveau { get; set; }
 
         [Required]
         [Display(Name = "Description de l'incident")]
+        [StringLength(500)]
         public string descriptionIncident { get; set; }
+
         public Nullable<System.DateTime> dateCreationTicket { get; set; }
         public Nullable<System.DateTime> dateClotureTicket { get; set; }
         public Nullable<int> idUtilisateur { get; set; }
