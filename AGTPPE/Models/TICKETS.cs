@@ -11,13 +11,28 @@ namespace AGTPPE.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+
     public partial class TICKETS
     {
         public int idTickets { get; set; }
+
+        [Required]
+        [Display(Name = "Emplacement du matériel ")]
         public string emplacementMaterielTicket { get; set; }
+
+        [Required]
+        [Display(Name = "Type de matériel ")]
         public string typeMaterielTicket { get; set; }
+        public IEnumerable<SelectListItem> UrgenceType { get; set; }
+
+        [Required]
+        [Display(Name = "Niveau d'urgence ")]
         public Nullable<int> niveauUrgenceTicket { get; set; }
+
+        [Required]
+        [Display(Name = "Description de l'incident")]
         public string descriptionIncident { get; set; }
         public Nullable<System.DateTime> dateCreationTicket { get; set; }
         public Nullable<System.DateTime> dateClotureTicket { get; set; }

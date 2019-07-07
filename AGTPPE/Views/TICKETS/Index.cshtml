@@ -6,9 +6,15 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+
+        <li>@Html.ActionLink("Incidents en cours", "Index", "Home")</li>
+        <li>@Html.ActionLink("Incidents clôturés", "Index", "Home")</li>
+        <li>@Html.ActionLink("Déclarez un incident", "Create", "TICKETS")</li>
+    </ul>
+</div>
+
 <table class="table">
     <tr>
         <th>
