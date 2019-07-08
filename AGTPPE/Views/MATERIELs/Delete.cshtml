@@ -1,0 +1,112 @@
+﻿@model AGTPPE.Models.MATERIEL
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MATERIEL</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.emplacementMateriel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emplacementMateriel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.typeMateriel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.typeMateriel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modeleMateriel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modeleMateriel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ipMateriel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ipMateriel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.typeConnexionMateriel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.typeConnexionMateriel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.typeIpMateriel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.typeIpMateriel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numInfologMateriel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numInfologMateriel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.celluleMateriel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.celluleMateriel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.etatMateriel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.etatMateriel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numeroChariot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeroChariot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UTILISATEUR.nomUtilisateur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UTILISATEUR.nomUtilisateur)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

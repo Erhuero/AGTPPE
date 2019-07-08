@@ -52,23 +52,7 @@ namespace AGTPPE.Controllers
 
        
 
-        // POST: TICKETS/Edit/5
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idTickets,emplacementMaterielTicket,typeMaterielTicket,niveauUrgenceTicket,descriptionIncident,dateCreationTicket,dateClotureTicket,idUtilisateur,numeroSerieMateriel")] TICKETS tICKETS)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(tICKETS).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.numeroSerieMateriel = new SelectList(db.MATERIEL, "numeroSerieMateriel", "emplacementMateriel", tICKETS.numeroSerieMateriel);
-            ViewBag.idUtilisateur = new SelectList(db.UTILISATEUR, "idUtilisateur", "nomUtilisateur", tICKETS.idUtilisateur);
-            return View(tICKETS);
-        }
+       
 
         // GET: TICKETS/Delete/5
         public ActionResult Delete(int? id)

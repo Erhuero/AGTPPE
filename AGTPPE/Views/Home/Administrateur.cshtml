@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Administrateur";
+}
+
+<div class="jumbotron">
+    
+    <p class="lead">Application de gestion de tickets / administrateur</p>
+
+</div>
+
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+
+        <li>@Html.ActionLink("Incidents en cours", "Administrateur")</li>
+        <li>@Html.ActionLink("Incidents clôturés", "Administrateur")</li>
+        <li>@Html.ActionLink("Inventaire", "Create", "MATERIELs")</li>
+        <li>@Html.ActionLink("Déclarez un incident", "Create", "TICKETS")</li>
+        <li>@Html.ActionLink("Liste de l'inventaire", "Administrateur")</li>
+        <li>@Html.ActionLink("Deconnexion", "Deconnexion", "Home")</li>
+    </ul>
+</div>
+

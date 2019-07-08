@@ -3,16 +3,15 @@
 }
 
 <div class="jumbotron">
-    <p class="lead">Application de gestion de tickets.</p>
+    <p class="lead">Application de gestion de tickets / utilisateur standart</p>
 
 </div>
 
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Page utilisateur", "User")</li>
+        <li>@Html.ActionLink("Page administrateur", "Administrateur")</li>
+        
 
-        <li>@Html.ActionLink("Incidents en cours", "Accueil")</li>
-        <li>@Html.ActionLink("Incidents clôturés", "Accueil")</li>
-        <li>@Html.ActionLink("Déclarez un incident", "Create", "TICKETS")</li>
-        <li>@Html.ActionLink("Deconnexion", "Index", "Home")</li>
     </ul>
 </div>

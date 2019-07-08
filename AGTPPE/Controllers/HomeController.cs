@@ -8,7 +8,7 @@ namespace AGTPPE.Controllers
 {
     public class HomeController : Controller
     {
-        [Authorize]
+        
         public ActionResult Index()
         {
             return View();
@@ -16,16 +16,28 @@ namespace AGTPPE.Controllers
 
         public ActionResult Accueil()
         {
-            ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+          return View();
+        }
 
+        //[Authorize]
+        public ActionResult Deconnexion()
+        {
             return View();
         }
+        public ActionResult User()
+        {
+            return View();
+        }
+        public ActionResult Administrateur()
+        {
+            return View();
+        }
+   
     }
 }

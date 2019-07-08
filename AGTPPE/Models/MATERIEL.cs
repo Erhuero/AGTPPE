@@ -11,7 +11,8 @@ namespace AGTPPE.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class MATERIEL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,17 +21,58 @@ namespace AGTPPE.Models
             this.TICKETS = new HashSet<TICKETS>();
         }
     
+        [Required]
+        [Display(Name = "Numéro de série")]
+        [StringLength(500)]
         public string numeroSerieMateriel { get; set; }
+
+        [Required]
+        [Display(Name = "Emplacement du matériel")]
+        [StringLength(500)]
         public string emplacementMateriel { get; set; }
+
+        [Required]
+        [Display(Name = "Type de matériel")]
+        [StringLength(500)]
         public string typeMateriel { get; set; }
+
+        [Required]
+        [Display(Name = "Modéle du matériel")]
+        [StringLength(500)]
         public string modeleMateriel { get; set; }
+
+        [Required]
+        [Display(Name = "Adresse IP")]
+        [StringLength(500)]
         public string ipMateriel { get; set; }
+
+        [Required]
+        [Display(Name = "Type de connexion")]
+        [StringLength(500)]
         public string typeConnexionMateriel { get; set; }
+
+        [Required]
+        [Display(Name = "Type d'adresse IP")]
+        [StringLength(500)]
         public string typeIpMateriel { get; set; }
+
+        [Required]
+        [Display(Name = "INFOLOG")]
+        [StringLength(500)]
         public string numInfologMateriel { get; set; }
+
+        [Required]
+        [Display(Name = "Cellule")]
+        [StringLength(500)]
         public string celluleMateriel { get; set; }
+
+        [Required]
+        [Display(Name = "Etat du matériel")]
+        [StringLength(500)]
         public string etatMateriel { get; set; }
+
         public string numeroChariot { get; set; }
+
         public Nullable<int> idUtilisateur { get; set; }
     
         public virtual UTILISATEUR UTILISATEUR { get; set; }
