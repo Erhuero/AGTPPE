@@ -8,12 +8,13 @@ namespace AGTPPE.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Accueil()
         {
             ViewBag.Message = "Your application description page.";
 
