@@ -28,6 +28,7 @@ namespace AGTPPE.Controllers
         {
             ViewBag.numeroSerieMateriel = new SelectList(db.MATERIEL, "numeroSerieMateriel", "emplacementMateriel");
             ViewBag.idUtilisateur = new SelectList(db.UTILISATEUR, "idUtilisateur", "nomUtilisateur");
+            
             return View();
         }
 
@@ -40,6 +41,7 @@ namespace AGTPPE.Controllers
         {
             if (ModelState.IsValid)
             {
+                tICKETS.dateCreationTicket = DateTime.Now; 
                 db.TICKETS.Add(tICKETS);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -20,17 +20,12 @@ namespace AGTPPE.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-          return View();
-        }
-
         //[Authorize]
         public ActionResult Deconnexion()
         {
             return View();
         }
-        public ActionResult User()
+        public new ActionResult User()
         {
             return View();
         }
@@ -38,6 +33,11 @@ namespace AGTPPE.Controllers
         {
             return View();
         }
-   
+        public ActionResult IncidentsAdmin()
+        {
+            return View();
+        }
+
+
     }
 }

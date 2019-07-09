@@ -69,6 +69,7 @@ namespace AGTPPE.Models
         [Required]
         [Display(Name = "Etat du matériel")]
         [StringLength(500)]
+        [DataType(DataType.MultilineText)]
         public string etatMateriel { get; set; }
 
         public string numeroChariot { get; set; }
