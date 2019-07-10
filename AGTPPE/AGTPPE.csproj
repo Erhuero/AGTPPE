@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AffichageIncidentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TICKETSController.cs" />
     <Compile Include="Global.asax.cs">
@@ -226,10 +227,17 @@
     <Content Include="Views\MATERIELs\Index.cshtml" />
     <Content Include="Views\Home\IncidentsAdmin.cshtml" />
     <Content Include="Views\Home\IncidentsOuverts.cshtml" />
+    <Content Include="Views\Affichage\Create.cshtml" />
+    <Content Include="Views\Affichage\Delete.cshtml" />
+    <Content Include="Views\Affichage\Details.cshtml" />
+    <Content Include="Views\Affichage\Edit.cshtml" />
+    <Content Include="Views\Affichage\Index.cshtml" />
+    <Content Include="Views\AffichageIncidents\IncidentsEnCours.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\IncidentsOuverts\" />
+    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

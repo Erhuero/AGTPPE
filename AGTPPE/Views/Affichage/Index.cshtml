@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AGTPPE.Models.TICKETS>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.emplacementMaterielTicket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.typeMaterielTicket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.niveauUrgenceTicket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descriptionIncident)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateCreationTicket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateClotureTicket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATERIEL.emplacementMateriel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UTILISATEUR.nomUtilisateur)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.emplacementMaterielTicket)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.typeMaterielTicket)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.niveauUrgenceTicket)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descriptionIncident)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateCreationTicket)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateClotureTicket)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATERIEL.emplacementMateriel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UTILISATEUR.nomUtilisateur)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idTickets }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idTickets }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idTickets })
+        </td>
+    </tr>
+}
+
+</table>

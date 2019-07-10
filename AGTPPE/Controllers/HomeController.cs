@@ -22,7 +22,6 @@ namespace AGTPPE.Controllers
             return View();
         }
 
-        //[Authorize]
         public ActionResult Deconnexion()
         {
             return View();
@@ -41,7 +40,9 @@ namespace AGTPPE.Controllers
 
         }
 
-        
+    }
+}
+        /*
         public ActionResult IncidentsOuverts(object sender, EventArgs e)
         {
            
@@ -71,7 +72,7 @@ namespace AGTPPE.Controllers
             while (dataReader.Read())
             {
                
-                Output = Output + dataReader.GetValue(0) + " | " + dataReader.GetValue(1) + " Ouvert à : "+dataReader.GetValue(2)+ "</br>";
+                Output = "<div class='dataReader'>" + Output + dataReader.GetValue(0) + "     " + dataReader.GetValue(1) + "    incident ouvert à   : "+dataReader.GetValue(2)+ "</br>"+"</div>";
             }
 
             Response.Write(Output);
@@ -83,5 +84,4 @@ namespace AGTPPE.Controllers
 
         }
     
-    }
-}
+    }*/
