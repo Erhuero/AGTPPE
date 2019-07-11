@@ -1,8 +1,10 @@
 ﻿@model AGTPPE.Models.TICKETS
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Details";
 }
+
+<h2>Details</h2>
 
 <div>
     <h4>TICKETS</h4>
@@ -73,5 +75,8 @@
         </dd>
 
     </dl>
-
-  </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idTickets }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

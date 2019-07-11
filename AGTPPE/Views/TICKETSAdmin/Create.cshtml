@@ -1,41 +1,35 @@
-﻿
-@{
-    ViewBag.Title = "IncidentsAdmin";
-}
-
-
-@model AGTPPE.Models.TICKETS
+﻿@model AGTPPE.Models.TICKETS
 
 @{
     ViewBag.Title = "Create";
 }
 
+<head runat="server">
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+</head>
 <div class="jumbotron">
 
     <p class="lead">Application de gestion de tickets</p>
 
 </div>
 
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+
+        <li>@Html.ActionLink("Incidents en cours", "IncidentsEnCours", "AffichageIncidents")</li>
+        <li>@Html.ActionLink("Incidents clôturés", "Administrateur")</li>
+        <li>@Html.ActionLink("Inventaire", "Create", "MATERIELs")</li>
+        <li>@Html.ActionLink("Déclarez un incident", "Create", "TICKETSAdmin")</li>
+        <li>@Html.ActionLink("Liste de l'inventaire", "Index", "MATERIELs")</li>
+        <li>@Html.ActionLink("Deconnexion", "Index", "Home")</li>
+    </ul>
+</div>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-
-            <li>@Html.ActionLink("Incidents en cours", "IncidentsEnCours", "AffichageIncidents")</li>
-            <li>@Html.ActionLink("Incidents clôturés", "Administrateur")</li>
-            <li>@Html.ActionLink("Inventaire", "Create", "MATERIELs")</li>
-            <li>@Html.ActionLink("Déclarez un incident", "Create", "TICKETSAdmin")</li>
-            <li>@Html.ActionLink("Liste de l'inventaire", "Index", "MATERIELs")</li>
-            <li>@Html.ActionLink("Deconnexion", "Index", "Home")</li>
-        </ul>
-    </div>
-
-    <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav"></ul>
-    </div>
     <div class="form-horizontal">
+        <h4>TICKETS</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -53,6 +47,7 @@
                 @Html.ValidationMessageFor(model => model.typeMaterielTicket, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.niveauUrgenceTicket, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -68,7 +63,7 @@
                 @Html.ValidationMessageFor(model => model.descriptionIncident, "", new { @class = "text-danger" })
             </div>
         </div>
-
+  
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -76,8 +71,4 @@
             </div>
         </div>
     </div>
-}
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 }

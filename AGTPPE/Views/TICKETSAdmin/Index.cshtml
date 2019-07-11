@@ -4,20 +4,30 @@
     ViewBag.Title = "Index";
 }
 
+<head runat="server">
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+</head>
 <div class="jumbotron">
+
     <p class="lead">Application de gestion de tickets</p>
 
 </div>
+
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
 
-        <li>@Html.ActionLink("Incidents en cours", "User", "Home")</li>
-        <li>@Html.ActionLink("Incidents clôturés", "User", "Home")</li>
-        <li>@Html.ActionLink("Déclarez un incident", "Create", "TICKETS")</li>
+        <li>@Html.ActionLink("Incidents en cours", "IncidentsEnCours", "AffichageIncidents")</li>
+        <li>@Html.ActionLink("Incidents clôturés", "Administrateur")</li>
+        <li>@Html.ActionLink("Inventaire", "Create", "MATERIELs")</li>
+        <li>@Html.ActionLink("Déclarez un incident", "Create", "TICKETSAdmin")</li>
+        <li>@Html.ActionLink("Liste de l'inventaire", "Index", "MATERIELs")</li>
         <li>@Html.ActionLink("Deconnexion", "Index", "Home")</li>
     </ul>
 </div>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -75,8 +85,7 @@
                 @Html.DisplayFor(modelItem => item.UTILISATEUR.nomUtilisateur)
             </td>
             <td>
-
-
+                @Html.ActionLink("Edit", "Edit", new { id = item.idTickets })
                 @Html.ActionLink("Delete", "Delete", new { id = item.idTickets })
             </td>
         </tr>

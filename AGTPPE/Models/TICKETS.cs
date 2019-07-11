@@ -19,7 +19,7 @@ namespace AGTPPE.Models
         public int idTickets { get; set; }
 
         [Required]
-        [Display(Name = "Emplacement du matériel ")]
+        [Display(Name = "Emplacement")]
         public string emplacementMaterielTicket { get; set; }
 
         [Required]

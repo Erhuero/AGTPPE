@@ -4,14 +4,29 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<div class="jumbotron">
+    <p class="lead">Application de gestion de tickets.</p>
+
+</div>
+
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+
+        <li>@Html.ActionLink("Incidents en cours", "IncidentsEnCours", "AffichageIncidents")</li>
+        <li>@Html.ActionLink("Incidents clôturés", "Administrateur", "Home")</li>
+        <li>@Html.ActionLink("Inventaire", "Create", "MATERIELs")</li>
+        <li>@Html.ActionLink("Déclarez un incident", "IncidentsAdmin", "Home")</li>
+        <li>@Html.ActionLink("Liste de l'inventaire", "Administrateur")</li>
+        <li>@Html.ActionLink("Deconnexion", "Index", "Home")</li>
+    </ul>
+</div>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>MATERIEL</h4>
+        <h4>Edition de votre matériel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.numeroSerieMateriel)
@@ -106,12 +121,8 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Sauvegarder" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

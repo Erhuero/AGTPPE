@@ -4,11 +4,25 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="jumbotron">
+    <p class="lead">Application de gestion de tickets.</p>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+</div>
+
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+
+        <li>@Html.ActionLink("Incidents en cours", "IncidentsEnCours", "AffichageIncidents")</li>
+        <li>@Html.ActionLink("Incidents clôturés", "Administrateur", "Home")</li>
+        <li>@Html.ActionLink("Inventaire", "Create", "MATERIELs")</li>
+        <li>@Html.ActionLink("Déclarez un incident", "IncidentsAdmin", "Home")</li>
+        <li>@Html.ActionLink("Liste de l'inventaire", "Index", "MATERIELs")</li>
+        <li>@Html.ActionLink("Deconnexion", "Index", "Home")</li>
+    </ul>
+</div>
+
+<h4>Le stock de l'entrepôt</h4>
+
 <table class="table">
     <tr>
         <th>
@@ -38,56 +52,46 @@
         <th>
             @Html.DisplayNameFor(model => model.etatMateriel)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.numeroChariot)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UTILISATEUR.nomUtilisateur)
-        </th>
+       
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.emplacementMateriel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.typeMateriel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.modeleMateriel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ipMateriel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.typeConnexionMateriel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.typeIpMateriel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.numInfologMateriel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.celluleMateriel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.etatMateriel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.numeroChariot)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UTILISATEUR.nomUtilisateur)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.numeroSerieMateriel }) |
-            @Html.ActionLink("Details", "Details", new { id=item.numeroSerieMateriel }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.numeroSerieMateriel })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.emplacementMateriel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.typeMateriel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modeleMateriel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ipMateriel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.typeConnexionMateriel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.typeIpMateriel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numInfologMateriel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.celluleMateriel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.etatMateriel)
+            </td>
+          
+            <td>
+                @Html.ActionLink("Editer", "Edit", new { id = item.numeroSerieMateriel })
+                @Html.ActionLink("Supprimer", "Delete", new { id = item.numeroSerieMateriel })
+            </td>
+        </tr>
+    }
 
 </table>

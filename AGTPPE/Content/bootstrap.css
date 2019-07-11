@@ -3977,28 +3977,30 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   list-style: none;
 }
 .nav > li {
+  
   position: relative;
   display: block;
 }
 .nav > li > a {
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 20px 20px 20px 20px;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #eee;
+  background-color: #acc4d9;
 }
 .nav > li.disabled > a {
-  color: #777;
+  color: #a9b3e6;
+
 }
 .nav > li.disabled > a:hover,
 .nav > li.disabled > a:focus {
   color: #777;
   text-decoration: none;
   cursor: not-allowed;
-  background-color: transparent;
+  background-color:  #9fbed8;
 }
 .nav .open > a,
 .nav .open > a:hover,
@@ -4010,7 +4012,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   height: 1px;
   margin: 9px 0;
   overflow: hidden;
-  background-color: #e5e5e5;
+  background-color: #92bce0;
 }
 .nav > li > a > img {
   max-width: none;
@@ -4027,6 +4029,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   line-height: 1.42857143;
   border: 1px solid transparent;
   border-radius: 4px 4px 0 0;
+
 }
 .nav-tabs > li > a:hover {
   border-color: #eee #eee #ddd;
@@ -4192,12 +4195,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   overflow-y: auto;
 }
 @media (min-width: 768px) {
-  .navbar-collapse {
-    width: auto;
-    border-top: 0;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-  }
+    .navbar-collapse {
+        
+        width: auto;
+        border-top: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
   .navbar-collapse.collapse {
     display: block !important;
     height: auto !important;
@@ -4324,6 +4328,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin: 7.5px -15px;
 }
 .navbar-nav > li > a {
+  margin-left:auto;
+  margin-right:auto;
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 20px;
@@ -4352,13 +4358,18 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 @media (min-width: 768px) {
-  .navbar-nav {
-    float: left;
-    margin: 0;
-  }
-  .navbar-nav > li {
-    float: left;
-  }
+    .navbar-nav {
+        left: 15%;
+        position: center;
+        margin-top: unset;
+        float: left;
+        margin: 0;
+    }
+    .navbar-nav > li {
+        float: left;
+        padding-right: 30px;
+        padding-left: 10px;
+    }
   .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -4956,15 +4967,17 @@ a.badge:focus {
   margin-left: 3px;
 }
 .jumbotron {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
-  color: inherit;
-  background-color: #eee;
+    background-image: url("C:\Users\const\Desktop\news1.jpg");
+    background-color:#adb1e0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
 }
 .jumbotron h1,
 .jumbotron .h1 {
   color: inherit;
+  text-align:center;
 }
 .jumbotron p {
   margin-bottom: 15px;
@@ -4984,10 +4997,10 @@ a.badge:focus {
   max-width: 100%;
 }
 @media screen and (min-width: 768px) {
-  .jumbotron {
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
+    .jumbotron {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
   .container .jumbotron,
   .container-fluid .jumbotron {
     padding-right: 60px;
@@ -5152,7 +5165,7 @@ a.thumbnail.active {
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
   background-image:      -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
   background-image:         linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
-  -webkit-background-size: 40px 40px;
+  /*-webkit-background-size: 40px 40px;*/
           background-size: 40px 40px;
 }
 .progress.active .progress-bar,

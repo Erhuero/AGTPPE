@@ -37,7 +37,9 @@ namespace AGTPPE.Controllers
 
 
                    Output = "<div class='dataReader'>" + Output + dataReader.GetValue(0) + "    " + dataReader.GetValue(1) + "    incident ouvert à   : " + dataReader.GetValue(2) + "</br>" + "</div>";
-                }
+
+
+            }
 
                 Response.Write(Output);
                 dataReader.Close();

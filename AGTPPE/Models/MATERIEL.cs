@@ -27,7 +27,7 @@ namespace AGTPPE.Models
         public string numeroSerieMateriel { get; set; }
 
         [Required]
-        [Display(Name = "Emplacement du matériel")]
+        [Display(Name = "Emplacement")]
         [StringLength(500)]
         public string emplacementMateriel { get; set; }
 
