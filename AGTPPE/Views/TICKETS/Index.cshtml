@@ -1,4 +1,10 @@
-﻿@model IEnumerable<AGTPPE.Models.TICKETS>
+﻿<!--
+    
+    Page listant les différentes
+    
+-->
+
+@model IEnumerable<AGTPPE.Models.TICKETS>
 
 @{
     ViewBag.Title = "Index";
@@ -38,12 +44,6 @@
         <th>
             @Html.DisplayNameFor(model => model.dateClotureTicket)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MATERIEL.emplacementMateriel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UTILISATEUR.nomUtilisateur)
-        </th>
         <th></th>
     </tr>
 
@@ -69,15 +69,7 @@
                 @Html.DisplayFor(modelItem => item.dateClotureTicket)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MATERIEL.emplacementMateriel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UTILISATEUR.nomUtilisateur)
-            </td>
-            <td>
-
-
-                @Html.ActionLink("Delete", "Delete", new { id = item.idTickets })
+                @Html.ActionLink("Supprimer", "Delete", new { id = item.idTickets })
             </td>
         </tr>
     }

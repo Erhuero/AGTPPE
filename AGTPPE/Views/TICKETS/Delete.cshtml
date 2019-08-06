@@ -17,7 +17,7 @@
     </ul>
 </div>
 <div>
-    <h4>TICKETS</h4>
+    <h4>Suppression d'un incident</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -74,16 +74,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.MATERIEL.emplacementMateriel)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UTILISATEUR.nomUtilisateur)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UTILISATEUR.nomUtilisateur)
-        </dd>
-
+        </dd>   
     </dl>
 
     @using (Html.BeginForm())
@@ -91,7 +82,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" />
+            <input type="submit" value="Supprimer" class="btn btn-default" />
         </div>
     }
 </div>

@@ -1,4 +1,8 @@
-﻿
+﻿<!--
+Interface de l'utilisteur    
+-->
+
+
 @{
     ViewBag.Title = "User";
 }
@@ -9,7 +13,7 @@
 </div>
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Incidents en cours", "User")</li>
+        <li>@Html.ActionLink("Incidents en cours", "Index", "TICKETS")</li>
         <li>@Html.ActionLink("Incidents clôturés", "User")</li>
         <li>@Html.ActionLink("Déclarez un incident", "Create", "TICKETS")</li>
         <li>@Html.ActionLink("Deconnexion", "Index", "Home")</li>

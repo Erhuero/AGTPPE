@@ -25,6 +25,7 @@ namespace AGTPPE.Models
         [Required]
         [Display(Name = "Type de matériel ")]
         public string typeMaterielTicket { get; set; }
+
         public IEnumerable<SelectListItem> TypeMateriel{ get; set; }
 
         [Required]
@@ -38,11 +39,15 @@ namespace AGTPPE.Models
         public string descriptionIncident { get; set; }
 
         public Nullable<System.DateTime> dateCreationTicket { get; set; }
+
         public Nullable<System.DateTime> dateClotureTicket { get; set; }
+
         public Nullable<int> idUtilisateur { get; set; }
+
         public string numeroSerieMateriel { get; set; }
     
         public virtual MATERIEL MATERIEL { get; set; }
+
         public virtual UTILISATEUR UTILISATEUR { get; set; }
     }
 }
